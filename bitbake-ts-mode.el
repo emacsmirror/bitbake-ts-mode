@@ -74,8 +74,7 @@
       :language bitbake
       :override t
       :feature keyword
-      ([,@bitbake-ts-mode--treesit-keywords] @font-lock-keyword-face)
-      ))
+      ([,@bitbake-ts-mode--treesit-keywords] @font-lock-keyword-face)))
 
 (defcustom bitbake-ts-mode-indent-offset 8
   "Number of spaces for each indentation step in `bitbake-ts-mode'."
@@ -115,8 +114,7 @@
     (setq-local treesit-font-lock-feature-list
                 '((comment)
                   (keyword)
-                  (identifier attribute string_content)
-                  ))
+                  (identifier attribute string_content)))
 
     ;; Font-lock
     (setq-local treesit-font-lock-settings
