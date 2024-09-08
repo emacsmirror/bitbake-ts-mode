@@ -6,7 +6,7 @@
 ;; Maintainer: Jason Kim <sukbeom.kim@gmail.com>
 ;; Created: September 8, 2024
 ;; Keywords: bitbake, tree-sitter, languages
-;; Version: 0.0.1
+;; Version: 0.0.2
 ;; Homepage: https://github.com/seokbeomKim/bitbake-ts-mode
 ;; Package-Requires: ((emacs "29.1"))
 
@@ -76,17 +76,12 @@
       :feature keyword
       ([,@bitbake-ts-mode--treesit-keywords] @font-lock-keyword-face)))
 
-(defcustom bitbake-ts-mode-indent-offset 8
-  "Number of spaces for each indentation step in `bitbake-ts-mode'."
-  :type 'natnum
-  :safe 'natnump)
+(defvar bitbake-ts-mode-indent-offset 8
+  "Number of spaces for each indentation step in `bitbake-ts-mode'.")
 
 (defun bitbake-ts-imenu-identifier-name-function (node)
   "A function to return the name of identifier `NODE'."
-  (let ((name (treesit-node-text node)))
-    (if (bitbake-ts-imenu-identifier-node-p node)
-        (concat name " / " (treesit-node-text node)))
-      name))
+  (treesit-node-text node))
 
 (defun bitbake-ts-imenu-identifier-node-p (node)
   "A function to check whether the `NODE' is identifier."
@@ -94,10 +89,7 @@
 
 (defun bitbake-ts-imenu-directive-name-function (node)
   "A function to obtain the name of directive `NODE'."
-  (let ((name (treesit-node-text node)))
-    (if (bitbake-ts-imenu-directive-node-p node)
-        (concat name " / " (treesit-node-text node)))
-      name))
+  (treesit-node-text node))
 
 (defun bitbake-ts-imenu-directive-node-p (node)
   "A function to check whether the `NODE' is directive."
