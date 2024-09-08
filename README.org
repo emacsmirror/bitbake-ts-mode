@@ -19,7 +19,7 @@ A major mode for BitBake Tree-sitter integration.
 (require 'bitbake-ts-mode)
 #+end_src
 
-* Change=Log
+* Change-Log
 
 ** 0.0.1
 - Initial version
