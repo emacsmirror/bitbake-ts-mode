@@ -1,0 +1,31 @@
+* bitbake-ts-mode
+
+A major mode for BitBake Tree-sitter integration.
+
+* Installation
+
+1. Add the Tree-sitter language source repository for BitBake.
+
+#+begin_src emacs-lisp
+(add-to-list
+ 'treesit-language-source-alist
+ '(bitbake "https://github.com/tree-sitter-grammars/tree-sitter-bitbake"))
+#+end_src
+
+2. Install the Tree-sitter for BitBake via M-x ~treesit-install-language-grammar~.
+
+3. Load ~bitbake-ts-mode~ major mode.
+#+begin_src emacs-lisp
+(require 'bitbake-ts-mode)
+#+end_src
+
+* Change=Log
+
+** 0.0.1
+- Initial version
+
+* Limitations & Feedback
+
+Currently, the package only supports syntax highlighting and navigation features. If you have ideas
+for improving the package, such as adding indentation rules, please feel free to share your
+suggestions.
